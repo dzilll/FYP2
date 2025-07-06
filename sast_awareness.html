@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAST Awareness | Secure Code Scanner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='sast.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Secure Your Code: Mastering SAST</h1>
+    <p>Learn how Static Application Security Testing can protect your apps from within.</p>
+  </header>
+
+  <section class="section">
+    <h2>What is SAST?</h2>
+    <div class="card">
+      <p>Static Application Security Testing (SAST) is a white-box testing method that analyzes your source code, bytecode, or binary code for security vulnerabilities without executing the program.</p>
+    </div>
+
+    <h2>Why SAST Matters</h2>
+    <div class="card">
+      <p>It helps you identify vulnerabilities early in the development cycle, reduce security risk, and lower the cost of fixing issues.</p>
+    </div>
+
+    <h2>Common Vulnerabilities Found</h2>
+    <div class="card">
+      <ul>
+        <li>SQL Injection</li>
+        <li>Cross-Site Scripting (XSS)</li>
+        <li>Command Injection</li>
+        <li>Path Traversal</li>
+        <li>Insecure Deserialization</li>
+      </ul>
+    </div>
+
+    <h2>OWASP Top 10 and SAST</h2>
+    <div class="card">
+      <p>SAST tools are instrumental in detecting OWASP Top 10 vulnerabilities before deployment, aligning with best practices for secure software development.</p>
+    </div>
+
+    <h2>Popular SAST Tools</h2>
+    <div class="card">
+      <ul>
+        <li>SonarQube</li>
+        <li>Semgrep</li>
+        <li>Checkmarx</li>
+        <li>Veracode</li>
+        <li>Fortify</li>
+      </ul>
+    </div>
+
+    <h2>Best Practices</h2>
+    <div class="card">
+      <ul>
+        <li>Integrate SAST into CI/CD pipelines</li>
+        <li>Define a secure coding standard</li>
+        <li>Review and triage results regularly</li>
+        <li>Use SAST alongside DAST for full coverage</li>
+      </ul>
+    </div>
+    <a href="{{ url_for('home') }}">
+      <button>
+        Home
+      </button>
+    </a>
+  </section>
+
+  <footer>
+    &copy; 2025 Secure Code Scanner | Awareness on SAST
+  </footer>
+</body>
+</html>

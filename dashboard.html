@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Secure Code Scanner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>Static Application Security Testing</h1>
+        <nav class="nav">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('dashboard') }}"class="active">Dashboard</a>
+            <a href="{{ url_for('feedback') }}">Feedback</a>
+            <a href="{{ url_for('sast_awareness') }}">SAST Awareness</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- User Details Section -->
+        <div class="section">
+            <h2>User Details</h2>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+        </div>
+
+        <!-- Scan History Section -->
+        <div class="section">
+            <h2>Scan History</h2>
+            <ul class="scan-history">
+                {% for scan in scans %}
+                    <li><a href="{{ url_for('view_scan', scan_id=scan.id) }}">{{ scan.filename }}</a> - Scanned on {{ scan.timestamp }}</li>
+                {% else %}
+                    <li>No scans found.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Feedback Section -->
+        <div class="section">
+            <h2>Feedback Submitted</h2>
+            <ul class="feedback-list">
+                {% for feedback in feedback_list %}
+                    <li>{{ feedback.text }} - Submitted on {{ feedback.timestamp }}</li>
+                {% else %}
+                    <li>No feedback submitted yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

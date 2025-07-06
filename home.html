@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home | Secure Code Scanner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1>Static Application Security Testing</h1>
+        <nav class="nav">
+            <a href="{{ url_for('home') }}" class="active">Home</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('feedback') }}">Feedback</a>
+            <a href="{{ url_for('sast_awareness') }}">SAST</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Welcome, {{ username }}!</h2>
+        <p>Upload your file below to scan for potential security issues.</p>
+
+        <form action="{{ url_for('upload_scan') }}" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" multiple accept=".php,.zip" required>
+            <br>
+            <button type="submit">Upload and Scan</button>
+        </form>
+
+        {% with messages = get_flashed_messages(category_filter=["success"]) %}
+            {% if messages %}
+                <div class="flash">{{ messages[0] }}</div>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
