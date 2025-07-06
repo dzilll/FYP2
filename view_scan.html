@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scan Result | Secure Code Scanner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='view.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Scan Result for {{ scan.filename }}</h1>
+        
+        <!-- Use <pre> to preserve the line breaks and format of the content -->
+        <pre>{{ content }}</pre>
+
+        <a href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+</body>
+</html>
